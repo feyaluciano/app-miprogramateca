@@ -1,0 +1,46 @@
+
+
+
+<nav class="navbar-static-top navbar navbar-light bg-light navbar-static-top navbar-expand-md"  >
+    <!-- <a class="navbar-brand" href="#">Brand</a> -->
+    
+     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav">
+       <span class="navbar-toggler-icon"></span>
+     </button>
+     <div class="collapse navbar-collapse" id="main_nav">
+   <ul class="navbar-nav" style="margin-top:20px; margin-bottom: 20px;">   
+    
+    
+
+<li class="nav-item d-none d-sm-none d-md-block" style="margin-right: 20px;margin-left: 120px;"><a class="nav-link items-de-menu " routerLink="/" href="#"> Inicio </a></li>
+<li class="nav-item d-block d-sm-block d-md-none" ><a class="nav-link items-de-menu " routerLink="/" href="#"> Inicio </a></li>       
+       <li class="nav-item" style="margin-right: 20px;"><a class="nav-link items-de-menu " href="#" routerLink="/compartir"> Compartir </a></li>
+       <li class="nav-item dropdown has-megamenu">
+           <a class="nav-link dropdown-toggle items-de-menu" href="#" data-toggle="dropdown" > Categorías  </a>
+           <div class="dropdown-menu megamenu">
+               
+            <div class="row">
+                <div class="col-md-3" *ngFor="let trecurso of tiposrecursos">
+                    <div class="col-megamenu">                       
+                        <ul class="list-unstyled">
+                            <li style="margin-bottom: 20px;" ><a class="listado-menu" style="font-size: 16px;font-weight: 400; color:#757575;" [routerLink]="['/tiporecurso', trecurso.IdTipoRecurso, trecurso.NombreTipoRecurso]" >{{trecurso.NombreTipoRecurso}}</a></li>                           
+                        </ul>
+                    </div>  <!-- col-megamenu.// -->
+                </div><!-- end col-3 -->                                                              
+            </div>
+                   
+               </div> <!-- dropdown-mega-menu.// -->
+
+               
+       </li>
+
+       <li class="nav-item d-block " ><a class="nav-link items-de-menu " routerLink="/queesmiprogramateca" href="#"> Qué es mi programateca? </a></li>
+<!--(click)="autenticacion()" -->
+
+       <li class="nav-item" style="margin-right: 20px;"><a class="nav-link items-de-menu " style="cursor: pointer;" routerLink="/ingreso" >  <img style="max-width: 20px;" class="img-fluid" src="assets/img/core-img/user.png" alt=""> </a></li>
+   </ul>
+     </div> <!-- navbar-collapse.// -->
+   </nav>
+
+
+<app-mi-modal-autenticacion (mensajeEvento)="recibeMensaje($event)"  [(estaVisible)]="mostrarModal"></app-mi-modal-autenticacion>

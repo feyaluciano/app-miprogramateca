@@ -1,0 +1,122 @@
+
+
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			 <!-- <a id="modalAutenticacion" href="#modal-container-871364" role="button" class="btn" data-toggle="modal">Launch demo modal</a> -->
+			
+			<div [ngClass]="{'show':estaVisible}" class="modal fade" data-backdrop="static" data-keyboard="false" id="modal-container-871364" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+				<div class="modal-dialog modal-lg" role="document">
+                    
+					<div class="modal-content" style="border: 0px;margin:0px;padding: 0px;">
+                        
+						<div class="container login-container" style="border: 0px;margin:0px;padding: 0px;">                                                       
+                            <div class="row" >
+                                <ng-container  *ngIf="usuarioEstaLogueado" >
+                                    <div class="col-sm-6 login-form-1" style="width: 75%;">
+                                        <div class="row">
+                                            <div class="col-md-12 col-lg-12" ></div>
+                                        </div>
+                                        <h3>Bienvenido {{estadoUsuarioService.Nombre}} {{estadoUsuarioService.Apellido}}</h3>                                       
+                                            <div class="form-group"></div>
+                                            <div class="form-group"></div>
+                                            <div class="form-group">
+                                                <input  style="cursor:pointer" type="button" (click)="salir()"   class="btnSubmit" value="Salir" />
+                                            </div>
+                                            <div style="color:white" *ngIf="mostrarMensajeError"> </div>
+                                            <div class="form-group">
+                                                <a href="#" class="btnForgetPwd"></a>
+                                            </div>                                      
+                                    </div>
+                                </ng-container>
+                                <ng-container  *ngIf="!usuarioEstaLogueado"  >
+                                <div class="col-md-6 login-form-1" style="width: 75%;">
+                                    <div class="row">
+                                        <div class="col-md-12 col-lg-12" >                                         
+                                        </div>
+                                    </div>
+                                    <h3>Ingresá</h3>
+                                    <form [formGroup]="loginFormulario" (ngSubmit)="login()">
+                                        <div class="form-group">
+                                            <input formControlName="email" type="text" class="form-control" placeholder="Your Email *"  />
+                                        </div>
+                                        <div class="form-group">
+                                            <input formControlName="password" type="password" class="form-control" placeholder="Your Password *"  />
+                                            <div style="color:white" *ngIf="loginFormulario.get('email').hasError('required') && loginFormulario.get('email').touched">Ingrese un email</div>
+                                            <div style="color:white" *ngIf="loginFormulario.get('email').hasError('email') && loginFormulario.get('email').touched">Ingrese un email</div>
+                                        </div>
+                                        <div class="form-group">
+                                            <input  style="cursor:pointer" type="submit" [disabled]="loginFormulario.invalid"  class="btnSubmit" value="Ingresar" />
+                                        </div>
+                                        <div style="color:white" *ngIf="mostrarMensajeError">Email o contraseña incorecta  </div>
+                                        <div class="form-group">
+                                            <a href="#" class="btnForgetPwd">Olvidaste tu Password?</a>
+                                        </div>
+                                    </form>
+                                </div>
+                            </ng-container><!--fin ng container-->
+                            
+                                <div class="col-md-6 login-form-2" style="width: 75%;">
+                                    <div class="login-logo">
+                                        <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 col-lg-12" >
+                                            <button type="button" (click)="ocultarAutenticacion()" class="close" >&times;</button>
+                                        </div>
+                                    </div>
+                                    <h3>Registrate</h3>
+                                    <form>
+                                        <div class="row">
+                                            <div class="col-md-12 col-lg-12" >
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" placeholder="Your Email *" value="" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 col-lg-12" >
+                                                <div class="form-group">
+                                                    <input type="password" class="form-control" placeholder="Your Password *" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12 col-lg-12" >
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" placeholder="Tu Nombre *" value="" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 col-lg-12" >
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" placeholder="Tu Apellido *" value="" />
+                                                </div>
+                                            </div>
+
+                                        </div>    
+
+
+
+                                        
+                                        
+                                        <div class="form-group">
+                                            <input type="submit" class="btnSubmit" value="Regitrarme" />
+                                        </div>
+                                        <!-- <div class="form-group">
+                
+                                            <a href="#" class="btnForgetPwd" value="Login">Forget Password?</a>
+                                        </div> -->
+                                    </form>
+                                   
+                                </div>
+                            </div>
+                       
+
+                        </div>
+					</div>
+					
+				</div>
+				
+			</div>
+			
+		</div>
+	</div>
+</div>

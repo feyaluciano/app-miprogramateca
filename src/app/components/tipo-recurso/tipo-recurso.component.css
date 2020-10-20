@@ -1,0 +1,42 @@
+/*ol {
+    list-style-type: none;
+    counter-reset: lista-personalizada;
+    margin: 0;
+    }
+    
+    ol li {
+    position: relative;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 30px;
+    padding: 4px 0 10px 50px;
+    margin-bottom: 10px;
+    background:#f5f5f5;
+    }
+    
+    .numerou {
+    
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-weight: bold;
+    font-size: 40px;
+    padding: 8px 8px 8px 5px;
+    background: orangered;
+    color: white;
+    height: 45px;
+    }
+    */
+    .aten {
+        padding: 15px 15px 20px 15px;
+        border-left: 5px solid #F98200;
+        background: #F5F5F5;
+        margin-bottom: 30px;
+        line-height: 26px !important;
+    }
+    .strong {
+        font-weight: bold;
+    }
+    .mtl, .mvl, .mal {
+        margin-top: 2em !important;
+    }

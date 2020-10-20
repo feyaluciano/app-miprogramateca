@@ -1,0 +1,160 @@
+<div class=" col-md-6 col-md-6 offset-lg-2">
+    <div class="checkout_details_area mt-50 clearfix">
+
+        <div class="cart-page-heading mb-30">
+            <h5>Alta de Recurso</h5>
+        </div>
+
+        <form [formGroup]="compartirFormulario" (ngSubmit)="compartir($event)">
+            <div class="row">
+               
+                <div class="col-12 mb-3">
+                
+                
+                
+                    <input
+                    class="form-control" 
+                    [class.is-danger]="compartirFormulario.get('titulo').dirty && compartirFormulario.get('titulo').invalid"
+                    type="text"
+                    formControlName="titulo"
+                  />
+                
+               
+
+                    <!-- <label for="company">Título</label>
+                    <input formControlName="titulo" type="text" pattern="[a-z]" class="form-control" id="titulo" value="">
+                    <span>XXXXXXXXX{{ getError('titulo')}}</span> -->
+                
+                    <div *ngIf="compartirFormulario.get('titulo').errors && compartirFormulario.get('titulo').touched">
+                        <p *ngIf="compartirFormulario.get('titulo').hasError('required')">
+                          Es un campo requerido
+                        </p>
+                        <p *ngIf="compartirFormulario.get('titulo').hasError('pattern')">
+                          iNGRESE SOLO LETRAS
+                        </p>
+                      </div>
+                
+                
+                
+                
+                </div>
+                <div class="col-12 mb-3">
+                    <label for="country">Categoría <span>*</span></label>
+                    <select    class="w-100 form-control" id="categoria" name="categoria" formControlName="categoria" >
+                        <option value="">Seleccioná una categoría</option>
+                        <option   *ngFor="let trecurso of tiposrecursos; let index = index" [ngValue]="trecurso.IdTipoRecurso"   value="{{trecurso.IdTipoRecurso}}" >{{trecurso.NombreTipoRecurso}}</option>
+                        
+                        
+                    </select>
+
+                    <div *ngIf="compartirFormulario.get('categoria').errors && compartirFormulario.get('categoria').touched">
+                        <p *ngIf="compartirFormulario.get('categoria').hasError('required')">
+                          Es un campo requerido
+                        </p>                        
+                      </div>
+
+
+
+
+                </div>
+                
+                <div class="col-12 mb-3">
+                    <div class="form-group">
+                     <ckeditor formControlName="detalle_recurso" [editor]="Editor" data=""></ckeditor>                           
+                      </div>                    
+                </div>
+               
+
+                <div class="col-12 mb-3" >
+                    <input  style="cursor:pointer" type="submit" [disabled]="compartirFormulario.invalid"   class="btnSubmit btn essence-btn" value="Compartir" />
+                    <!--  <a href="#" class="btn essence-btn" [disabled]="compartirFormulario.invalid">Compartir</a> -->
+                   
+                    <ngx-spinner
+                    bdColor="rgba(51,51,51,0.8)"
+                    size="medium"
+                    color="#fff"
+                    type="ball-scale-multiple">
+                    <p style="font-size: 20px; color: white">Compartiendo...</p>
+                  </ngx-spinner>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div role="alert" aria-live="assertive" aria-atomic="true" class="toast" auto-c  id="toastUser">
+  <div class="toast-header">
+    <img src="..." class="rounded mr-2" alt="...">
+    <strong class="mr-auto">Error</strong>
+    <small></small>
+    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="toast-body">
+    Debe loguearse antes de compartir.
+  </div>
+</div>
+
+
+
+			 <!-- <a id="modalAutenticacion" href="#modal-container-871364" role="button" class="btn" data-toggle="modal">Launch demo modal</a> -->
+      
+       
+       <div class="modal" tabindex="-1" role="dialog" id="modal1" >
+        <div class="modal-dialog" role="document" >
+          <div class="modal-content" style="background-color: #F05837;">
+            <div class="modal-header">             
+              <button type="button" class="close"  (click)="cerrarMensaje()" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p style="color:#ffffff">{{mensajeAlCompartir}}</p>
+            </div>
+            <div class="modal-footer">
+              
+              <!-- <button type="button" class="btn btn-primary">Save changes</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+			<!-- <div   class="modal fade" data-backdrop="static" data-keyboard="false"  role="dialog" aria-labelledby="myModalLabel" id="modal1" >
+				<div class="modal-dialog modal-lg" role="document" >
+                    
+					<div class="modal-content" style="border: 0px;">
+                        
+						<div class="container login-container">                                                       
+                            <div class="row">
+                               
+                               
+                            
+                                <div class="col-md-6 login-form-2">
+                                    <div class="login-logo">
+                                        <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 col-lg-12" >
+                                            <button type="button" (click)="ocultarAutenticacion()" class="close" >&times;</button>
+                                        </div>
+                                    </div>
+                                    <h3>Registrate</h3>
+                                   
+                                   
+                                </div>
+                            </div>
+                       
+
+                        </div>
+					</div>
+					
+				</div>
+				
+			</div> -->
+			
+	

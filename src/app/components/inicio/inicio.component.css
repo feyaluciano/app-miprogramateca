@@ -1,0 +1,32 @@
+
+.contenedor {
+	margin-top: 20px;
+    display: table; 
+    background: #252525;      
+}
+
+h1 { 
+	position: relative; 
+	float: left;
+	
+	
+    font-size: 1.5em;
+    font-weight: 400;
+    padding: 20px;
+}
+
+h1 span {
+    position:absolute;
+    right:0;
+    color: #fff;
+    font-weight: 300;
+    width:0;
+    background: #252525;
+    border-left: 1px solid #000;
+    animation: escribir 10s steps(100) infinite alternate;
+}
+
+@keyframes escribir {
+    from { width: 100% }
+    to { width:0 }
+}

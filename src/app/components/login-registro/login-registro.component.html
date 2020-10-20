@@ -1,0 +1,86 @@
+<div class="container login-container">
+    <div class="row">
+        <div class="col-md-6 login-form-1">
+            <h3>Ingresá</h3>
+            <form [formGroup]="loginFormulario" (ngSubmit)="login()">
+                <div class="form-group">
+                    <input formControlName="email" type="text" class="form-control" placeholder="Your Email *"  />
+                    <div style="color:#FF084E" *ngIf="loginFormulario.get('email').hasError('required') && loginFormulario.get('email').touched">Ingrese un email</div>
+                    <div style="color:#FF084E" *ngIf="loginFormulario.get('email').hasError('email') && loginFormulario.get('email').touched">Ingrese un email</div>
+                </div>
+                <div class="form-group">
+                    <input formControlName="password" type="password" class="form-control" placeholder="Tu password *"  />
+                    <div style="color:#FF084E" *ngIf="loginFormulario.get('password').hasError('required') && loginFormulario.get('password').touched">Ingrese un password</div>
+                </div>
+                <div class="form-group">
+                    <input  style="cursor:pointer" type="submit"   class="btnSubmit" value="Ingresar" />
+                </div>
+                <div style="color:#FF084E" class="mb-1" *ngIf="mostrarMensajeError">Email o contraseña incorecta  </div>
+                <div class="form-group">
+                    <a href="#" class="btnForgetPwd">Olvidaste tu Password?</a>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-6 login-form-2">
+            <h3>Registrate</h3>
+            {{ registroFormulario.get("emailRegistro").errors | json }}
+            
+            <form [formGroup]="registroFormulario" (ngSubmit)="registro()">
+                <div class="form-group">
+                    <input formControlName="emailRegistro" type="text" class="form-control" placeholder="Tu email *"  />
+                    <div style="color:#FF084E" *ngIf="registroFormulario.get('emailRegistro').hasError('noEsEmailDisponible') && registroFormulario.get('emailRegistro').touched">Ese email ya esta registrado</div>
+                    <div style="color:#FF084E" *ngIf="registroFormulario.get('emailRegistro').hasError('required') && registroFormulario.get('emailRegistro').touched">Ingrese un email</div>
+                    <div style="color:#FF084E" *ngIf="registroFormulario.get('emailRegistro').hasError('email') && registroFormulario.get('emailRegistro').touched">Ingrese un email</div>
+                </div>
+                <div class="form-group">
+                    <input formControlName="passwordRegistro" type="password" class="form-control" placeholder="Tu password *"  />
+                    <div style="color:#FF084E" *ngIf="registroFormulario.get('passwordRegistro').hasError('noTieneMayusculaConParametro') && registroFormulario.get('passwordRegistro').touched">Debe ingresar al menos dos  mayuscula</div>
+                    <div style="color:#FF084E" *ngIf="registroFormulario.get('passwordRegistro').hasError('required') && registroFormulario.get('passwordRegistro').touched">Ingrese un password</div>
+                    <div style="color:#FF084E" *ngIf="registroFormulario.get('passwordRegistro').hasError('minlength') && registroFormulario.get('passwordRegistro').touched">Ingrese al menos 5 caracteres</div>                  
+                    <div style="color:#FF084E" *ngIf="registroFormulario.get('passwordRegistro').hasError('maxlength') && registroFormulario.get('passwordRegistro').touched">Ingrese 10 caracteres como máximo</div>  
+                </div>
+
+                <div class="form-group">
+                    <input  formControlName="nombreRegistro" type="text" class="form-control" placeholder="Tu nombre *"  />
+                    <div style="color:#FF084E" *ngIf="registroFormulario.get('nombreRegistro').hasError('required') && registroFormulario.get('nombreRegistro').touched">Ingrese un nombre</div>
+                    <div style="color:#FF084E" *ngIf="registroFormulario.get('nombreRegistro').hasError('minlength') && registroFormulario.get('nombreRegistro').touched">Ingrese al menos 5 caracteres</div>                  
+                    <div style="color:#FF084E" *ngIf="registroFormulario.get('nombreRegistro').hasError('maxlength') && registroFormulario.get('nombreRegistro').touched">Ingrese 20 caracteres como máximo</div>                  
+                </div>
+                
+
+                <div class="form-group">
+                    <input formControlName="apellidoRegistro" type="text" class="form-control" placeholder="Tu apellido *"  />
+                    <div style="color:#FF084E" *ngIf="registroFormulario.get('apellidoRegistro').hasError('required') && registroFormulario.get('apellidoRegistro').touched">Ingrese un apellido</div>
+                    <div style="color:#FF084E" *ngIf="registroFormulario.get('apellidoRegistro').hasError('minlength') && registroFormulario.get('apellidoRegistro').touched">Ingrese al menos 5 caracteres</div>                  
+                    <div style="color:#FF084E" *ngIf="registroFormulario.get('apellidoRegistro').hasError('maxlength') && registroFormulario.get('apellidoRegistro').touched">Ingrese 20 caracteres como máximo</div>                  
+
+                </div>
+
+
+                <div class="form-group">
+                    <input  style="cursor:pointer" type="submit"   class="btnSubmit" value="Registrarme" />
+                </div>
+                
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal" tabindex="-1" role="dialog" id="modal1" >
+    <div class="modal-dialog" role="document" >
+      <div class="modal-content" >
+        <div class="modal-header">             
+          <button type="button" class="close"  (click)="cerrarMensaje()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p style="color:#333333;">{{mensajeAlIngresarORegistrar}}</p>
+        </div>
+        <div class="modal-footer">
+          
+          <!-- <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+        </div>
+      </div>
+    </div>
+  </div>

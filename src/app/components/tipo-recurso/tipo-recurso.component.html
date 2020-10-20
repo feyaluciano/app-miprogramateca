@@ -1,0 +1,43 @@
+
+
+<div class="single-blog-wrapper">
+
+    <!-- Single Blog Post Thumb -->
+    <!-- <div class="single-blog-post-thumb">
+        <img src="assets/img/bg-img/bg-8.jpg" alt="">
+       aaa
+    </div> -->
+
+    <div class="breadcumb_area breadcumb-style-two bg-img" style="background-image: url('assets/img/bg-img/bg-8.jpg');position:static">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-4">
+                    <div class="page-title text-center">                   
+                        <h2 style="background-color: beige;font-size: 24px;">-- {{NombreTipoRecursoTitulo}}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-12">
+                <div class="regular-page-content-wrapper section-padding-80">
+                    <div class="regular-page-text">
+                        
+                        <ng-container *ngFor="let titulorecurso of titulosrecursos;let i = index">
+                            <!-- <div class="list-item" > -->
+                               <div class="mt1 strong aten" ><a [routerLink]="['/recurso', titulorecurso.idRecurso, titulorecurso.Titulo | urlsMejoradas]" >{{i}} - {{titulorecurso.Titulo   }} </a></div> 
+                            <!-- </div> -->
+                            
+                        </ng-container>
+
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
