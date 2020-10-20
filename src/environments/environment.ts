@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiEndPoint:"http://localhost:8081/api_programateca/public"
+  apiEndPoint:"http://localhost:8081/api-miprogramateca/public"
 };
 
 /*

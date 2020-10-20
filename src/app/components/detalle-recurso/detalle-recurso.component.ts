@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './detalle-recurso.component.html',
   styleUrls: ['./detalle-recurso.component.css']
 })
+
 export class DetalleRecursoComponent implements OnInit {
   recursos: String[];
   NombreRecursoTitulo: String;
@@ -28,7 +29,8 @@ export class DetalleRecursoComponent implements OnInit {
     );
   }
   constructor(private _recursoservice:RecursoService,private rutaActivaParam: ActivatedRoute) {
-    rutaActivaParam.params.subscribe(respuesta=>{      
+    rutaActivaParam.params.subscribe(respuesta=>{   
+      //alert(JSON.stringify(respuesta));   
        this.obtenerUnRecursos(respuesta.IdRecurso);      
     },
     (error) => {
